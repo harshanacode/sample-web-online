@@ -3,45 +3,62 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-.profile{
-	display : flex;
-    aling-items : center;
-    height : auto;
-}
-.prfile-image{
-	width : 350px;
-    height : auto;
-	margin : 0 auto;
-	background-color : #;
-}
-.profile-text ,p{
-	width : auto;
-    height : auto;
-	margin : 0 auto;
-    text-align : center;
-	background-color : #;
-    margin : 2px auto;
-    font-family: Tahoma, Verdana, sans-serif;
-    text-transform: capitalize;
-}
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    html{
+        font-family: Tahoma, Verdana, sans-serif;
+        text-transform: capitalize;
+    }
+    .profile{
+        padding: 1%;
+        display: flex;
+        gap: 5%;
+        width: 50%;
+        margin: auto;
+        align-items: center;
+        height: 720px;
+    }
+    .profile-image-src{
+        border-width: 5%;
+        border-color: gray;
+        border-radius: 50%;
+        align-items: center;
+        margin: auto;
+        width: 50%;
+    }
+    .profile-text{
+        text-align: left;
+        width: auto;
+    }
+    .profile-text-greet{
+        font-size: 2vw;
+        font-weight: bold;
+        color: gray;
+    }
+    .profile-text-name{
+        font-weight: bolder;
+        font-size: 4.5vw;
+    }
+    .profile-text-about{
+        font-weight: bold;
+        font-size: 2vw;
+        color: gray;
+    }
+
 </style>
 <title>harshadevlonine</title>
 </head>
 <body>
-<div class="profile">
-<div class="prfile-image">
-<img src="http://yt3.ggpht.com/yti/ANjgQV_vztGWcHIYwodQViKaeynqM_LMRZeO3KzkO87e=s108-c-k-c0x00ffffff-no-rj" alt="profile-image" style = "width : 100%; border-radius : 50%;">
-</div>
-<div class="profile-text">
-<p class="greet"style = "font-size : 15px;
-    font-weight: bold;
-    color : gray;">hello, i'm</p>
-<p class="name"style = "font-size : 35px;
-    font-weight: bold;">harshana eranda</p>
-<p class="about"style = "font-size : 25px;
-    font-weight: bold;
-    color : gray;">full stack developer and 3d artist</p>
-</div>
-</div>
+    <div class="profile">
+        <img class="profile-image-src" src="https://yt3.ggpht.com/yti/ANjgQV_vztGWcHIYwodQViKaeynqM_LMRZeO3KzkO87e=s108-c-k-c0x00ffffff-no-rj">
+        <div class="profile-text">
+            <p class="profile-text-greet">hello,i'm</p>
+            <p class="profile-text-name">harshana eranda</p>
+            <p class="profile-text-about">full stack developer and 3d artist</p>
+        </div>
+    </div>
 </body>
 </html>
