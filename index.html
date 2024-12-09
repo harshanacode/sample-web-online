@@ -1,64 +1,84 @@
-<!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-    *{
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-    html{
-        font-family: Tahoma, Verdana, sans-serif;
-        text-transform: capitalize;
-    }
-    .profile{
-        padding: 1%;
-        display: flex;
-        gap: 5%;
-        width: 50%;
-        margin: auto;
-        align-items: center;
-        height: auto;
-    }
-    .profile-image-src{
-        border-width: 5%;
-        border-color: gray;
-        border-radius: 50%;
-        align-items: center;
-        margin: auto;
-        width: 50%;
-    }
-    .profile-text{
-        text-align: left;
-        width: auto;
-    }
-    .profile-text-greet{
-        font-size: 2vw;
-        font-weight: bold;
-        color: gray;
-    }
-    .profile-text-name{
-        font-weight: bolder;
-        font-size: 4.5vw;
-    }
-    .profile-text-about{
-        font-weight: bold;
-        font-size: 2vw;
-        color: gray;
-    }
+    <head>
+        <title>to-do-list</title>
+    </head>
+    <body>
+        <p class="to-do-title">to-do-list</p>
+        <input class="to-input-name" type="text" placeholder="add to do">
+        <input class="to-input-date" type="date">
+        <button class="to-do-button" onclick="getInputValue()">add</button>
+        <div class="to-do-list-items"></div>
+        <script>
+            
+            const toDoList = [
+                {name : "go to work", date : "2024-10-25"},
+            ];
 
-</style>
-<title>harshadevlonine</title>
-</head>
-<body>
-    <div class="profile">
-        <img class="profile-image-src" src="https://yt3.ggpht.com/yti/ANjgQV_vztGWcHIYwodQViKaeynqM_LMRZeO3KzkO87e=s108-c-k-c0x00ffffff-no-rj">
-        <div class="profile-text">
-            <p class="profile-text-greet">hello,i'm</p>
-            <p class="profile-text-name">harshana eranda</p>
-            <p class="profile-text-about">full stack developer and 3d artist</p>
-        </div>
-    </div>
-</body>
+            renderList()
+
+            function renderList(){
+                let toDoListHtml = "";
+                for(let i = 0; i < toDoList.length; i++){
+                const todoObject = toDoList[i];
+                const {name, date} = todoObject;
+                const html = `<p class="text-list">${name} ${date}
+                    <button class="delete-button" onclick="
+                    toDoList.splice(${i}, 1);
+                    renderList();
+                    ">delete</button>
+                    </p>`;
+                toDoListHtml+=html;
+            };
+            document.querySelector(".to-do-list-items").innerHTML = toDoListHtml;
+            }
+
+            function getInputValue(){
+                const getName = document.querySelector(".to-input-name");
+                const getDate = document.querySelector(".to-input-date");
+                const name = getName.value;
+                const date = getDate.value;
+                toDoList.push({name : name,date : date});
+                renderList()
+                getName.value = " ";
+            };
+        </script>
+        <style>
+            *{
+                text-transform: capitalize;
+            }
+            .to-do-title{
+                font-size: 30px;
+            }
+            .to-input-name{
+                font-size: 30px;
+                border-radius: 5px;
+                width: 250px;
+            }
+            .to-input-date{
+                font-size: 30px;
+                border-radius: 5px;
+                width: 250px;
+            }
+            .to-do-button{
+                font-size: 32px;
+                border-radius: 5px;
+                width: 250px;
+                background-color: green;
+                color: white;
+            }
+            .text-list{
+                font-size: 20px;
+                border-radius: 5px;
+                width: 20%;
+            }
+            .delete-button{
+                font-size: 20px;
+                border-radius: 5px;
+                width: 100px;
+                float: right;
+                background-color: red;
+                color: white;
+            }
+        </style>
+    </body>
 </html>
